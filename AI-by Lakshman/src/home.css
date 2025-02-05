@@ -1,0 +1,8 @@
+.Homemain {
+  width: 90%;
+  display: flex;
+  flex: 1;
+}
+.paragraph {
+  width: 65%;
+}

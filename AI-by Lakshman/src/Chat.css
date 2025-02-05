@@ -1,0 +1,70 @@
+.titleheading {
+  font-size: 60px;
+  font-weight: 500;
+  background: linear-gradient(
+    to right,
+    #29323c,
+    #72879d
+  ); /* Dark Blue to Gray */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the text transparent so the gradient shows through */
+  font-weight: bold;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 50px;
+  padding: 50px;
+}
+.card {
+  height: 200px;
+  padding: 20px;
+  background-color: #f0f4f9;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+}
+.card img {
+  width: 35px;
+  background-position: center;
+  padding: 2px;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+}
+.card p {
+  font-size: 17px;
+  color: #585858;
+}
+.card:hover {
+  background-color: #dfe4ea;
+}
+.bottomchat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 900px;
+  padding: 0px 20px;
+  margin: auto;
+  margin-top: 80px;
+}
+.input {
+  background-color: #f6f4f9;
+  font-size: 18px;
+  padding-left: 18px;
+  outline: none;
+}
+.bottomchat input {
+  padding-right: 58px;
+  padding-left: 30px;
+  border: 1px solid #585858;
+}
+.resultChat {
+  width: 75%;
+  max-height: 75vh;
+  padding: 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
