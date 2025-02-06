@@ -20,13 +20,11 @@
 ---
 
 ## 🖥️ Tech Stack:
-- **Python**: For AI model development and data analysis.
-- **Flask**: For the backend to handle requests and serve the app.
-- **Pandas**: Data manipulation and analysis.
-- **Matplotlib & Seaborn**: For data visualization and plotting trends.
-- **React**: For frontend development and interactivity.
-- **HTML/CSS/JavaScript**: For building and styling the web interface.
-- **Scikit-learn**: For machine learning model training.
+- **React**: For building the frontend user interface.
+- **Vite**: A fast build tool for modern web development.
+- **Gemini API**: For AI-powered interactions and responses related to waste management.
+- **HTML/CSS/JavaScript**: For frontend development and styling.
+
 
 ---
 
@@ -49,3 +47,29 @@ To run Wastey AI locally, follow these steps:
 ```bash
 git clone https://github.com/Laxman2546/wasteyai.git
 cd wasteyai
+
+. Install dependencies:
+bash
+Copy
+Edit
+pip install -r requirements.txt
+3. Run the application:
+bash
+Copy
+Edit
+python app.py
+🛠️ Contributing:
+If you'd like to contribute, feel free to fork this repository and submit a pull request. Here's how to contribute:
+
+Fork the repository.
+Create a new branch: git checkout -b feature-name
+Commit your changes: git commit -am 'Add new feature'
+Push the changes: git push origin feature-name
+Open a pull request.
+📄 License:
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+✨ Contact:
+For any questions or suggestions, feel free to reach out to me at laxmannani960@gmail.com or connect with me on GitHub.
+
+Made with ❤️ by Ella Lakshman
