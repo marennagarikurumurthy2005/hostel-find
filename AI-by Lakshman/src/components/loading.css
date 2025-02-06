@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .loading {
-  font-size: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-family: sans-serif;
   font-weight: 500;
   display: flex;
   gap: 2px;
   margin-top: 15px;
+  user-select: none;
 }
 
 .loading span {
@@ -22,5 +23,11 @@
   100% {
     filter: blur(5px);
     opacity: 0.2;
+  }
+}
+@media (max-width: 576px) {
+  .loading {
+    margin-left: 30px;
+    font-size: 12px;
   }
 }

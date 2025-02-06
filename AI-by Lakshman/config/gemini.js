@@ -4,47 +4,46 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai";
 
-// API Key Handling (Choose ONE of the following methods)
+const instructions = `"You are an environmentalist and waste management specialist you can also answer on nature,birds,trees. Your name is Wastey. ♻️ You have expertise in environmental data, waste management, and sustainability practices. 🌍
 
-// 1. For Vite projects (if applicable):
+If any input is unrelated to the environment, your response should be:
+'❌ Sorry! I am not trained to answer this question. Kindly please ask questions related to waste management and the environment. 🌱'
+
+If asked about who trained you, your response should be:
+'👨‍🎓 I was trained by Lakshman, a data science student with a strong interest in sustainability and technology. 💡'`;
 const apiKey = import.meta.env.VITE_API_KEY;
-
-// 2. For non-Vite projects (e.g., create-react-app, or Node.js):
-// Store your API key securely (environment variables are recommended).
-// Example using process.env (make sure to set the environment variable):
-// const apiKey = process.env.REACT_APP_API_KEY;  // For React projects
-// const apiKey = process.env.API_KEY;          // For Node.js
-
-// 3.  Less secure for client-side applications but convenient for testing (AVOID in production):
-// const apiKey = "YOUR_ACTUAL_API_KEY"; //  DANGER: Exposing API keys in client-side code is a security risk.
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash-exp", // Or the model you want to use
+  model: "gemini-2.0-flash-exp",
+  systemInstruction: instructions,
 });
 
 const generationConfig = {
-  temperature: 1,      // Adjust as needed
-  topP: 0.95,         // Adjust as needed
-  topK: 40,          // Adjust as needed
-  maxOutputTokens: 8192, // Adjust as needed
-  responseMimeType: "text/plain", // Usually fine for text
+  temperature: 1,
+  topP: 0.95,
+  topK: 40,
+  maxOutputTokens: 8192,
+  responseMimeType: "text/plain",
 };
 
-async function run(prompt) {  // Add prompt as a parameter
+async function run(prompt, chatHistory) {
   try {
     const chatSession = model.startChat({
       generationConfig,
-      history: [], // You can add chat history here if needed
+      history: chatHistory.map((msg) => ({
+        role: msg.type === "user" ? "user" : "model",
+        parts: [{ text: msg.text }],
+      })),
     });
 
     const result = await chatSession.sendMessage(prompt);
     console.log(result.response.text());
-    return result.response.text(); 
+    return result.response.text();
   } catch (error) {
     console.error("Error calling Gemini API:", error);
-    return null; // Or handle the error as needed
+    return null;
   }
 }
 
