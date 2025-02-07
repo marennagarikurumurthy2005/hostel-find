@@ -1,5 +1,8 @@
 # Wastey AI 🌍🤖
 
+You can check out the live demo of Wastey AI once deployed here:  
+[Live Demo `https://wasteyai.netlify.app/`](#)
+
 **Wastey AI** is an AI-powered waste management system designed to help track and optimize waste management processes for a cleaner, greener planet. It utilizes machine learning to identify waste hotspots, analyze recycling efficiency, and evaluate community engagement levels. 
 
 ---
@@ -35,7 +38,7 @@ Wastey AI processes environmental data on waste generation, recycling practices,
 
 ## 🚀 Deployment:
 You can check out the live demo of Wastey AI once deployed here:  
-[Live Demo (Link coming soon)](#)
+[Live Demo `https://wasteyai.netlify.app/`](#)
 
 ---
 
