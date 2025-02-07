@@ -1,3 +1,5 @@
+
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -13,6 +15,7 @@
   padding: 20px;
   background-color: #f0f4f9;
   cursor: pointer;
+
   border-radius: 10px;
   position: relative;
   overflow-y: scroll;
@@ -37,19 +40,20 @@
 }
 
 .message {
-  background-color: white;
   border-radius: 0.75rem;
   padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: start;
+}
+.message img {
+  align-items: start;
 }
 
 .user-msg {
-  margin-left: auto;
+  margin: auto;
 }
 
 .bot-msg {
-  margin-right: auto;
-  background-color: white;
+  margin: auto;
 }
 
 .chat-container {
@@ -80,6 +84,7 @@
 }
 .inputBox {
   width: 100%;
+  left: 0;
   z-index: 999999;
 }
 
@@ -101,7 +106,9 @@
   .card {
     height: 180px;
   }
-
+  .inputBox {
+    width: 90%;
+  }
   .titleheading {
     font-size: 40px;
   }
@@ -115,11 +122,31 @@
   }
 
   .card {
-    height: 160px;
+    height: 150px;
   }
-
+  .card p {
+    font-size: 15px;
+    color: #585858;
+  }
   .titleheading {
     font-size: 35px;
+  }
+  .inputBox {
+    width: 90%;
+  }
+  .botText {
+    font-size: 18px;
+  }
+  .chat-container {
+    max-height: 70vh;
+    margin-top: 20px;
+  }
+  .message {
+    margin-left: 25px;
+  }
+  .message img {
+    width: 25px;
+    height: 25px;
   }
 }
 
@@ -143,7 +170,7 @@
     font-size: 15px;
   }
   .card p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .card img {
     width: 25px;
@@ -155,10 +182,10 @@
     border-radius: 25px;
   }
   .user-msg {
-    font-size: 8px;
+    font-size: 20px;
   }
   .botText {
-    font-size: 12px;
+    font-size: 15px;
   }
   .chat-container {
     max-height: 70vh;

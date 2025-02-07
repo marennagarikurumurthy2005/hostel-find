@@ -33,36 +33,46 @@ const ContextProvider = ({ children }) => {
 
     setChatHistory((prev) => [...prev, { type: "user", text: userMessage }]);
 
-    let recentdataResponse = await run(userMessage, chatHistory);
-    let responseArray = recentdataResponse.split("**");
-    let newResponse = "";
+    try {
+      let recentdataResponse = await run(userMessage, chatHistory);
+      let responseArray = recentdataResponse.split("**");
+      let newResponse = "";
 
-    for (let i = 0; i < responseArray.length; i++) {
-      newResponse +=
-        i % 2 !== 1 ? responseArray[i] : `<b>${responseArray[i]}</b>`;
+      for (let i = 0; i < responseArray.length; i++) {
+        newResponse +=
+          i % 2 !== 1 ? responseArray[i] : `<b>${responseArray[i]}</b>`;
+      }
+
+      let formattedResponse = newResponse.split("*").join("<br>");
+      let responseWords = formattedResponse.split(" ");
+
+      setChatHistory((prev) => [...prev, { type: "bot", text: "" }]);
+
+      responseWords.forEach((word, i) => {
+        setTimeout(() => {
+          setChatHistory((prev) => {
+            let updatedHistory = [...prev];
+            let lastIndex = updatedHistory.length - 1;
+            updatedHistory[lastIndex] = {
+              ...updatedHistory[lastIndex],
+              text: updatedHistory[lastIndex].text + " " + word,
+            };
+            return updatedHistory;
+          });
+        }, 75 * i);
+      });
+    } catch (error) {
+      setChatHistory((prev) => [
+        ...prev,
+        {
+          type: "bot",
+          text: "⚠️ Oops! Something went wrong. Please try again.",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+      setInput("");
     }
-
-    let formattedResponse = newResponse.split("*").join("<br>");
-    let responseWords = formattedResponse.split(" ");
-
-    setChatHistory((prev) => [...prev, { type: "bot", text: "" }]);
-
-    responseWords.forEach((word, i) => {
-      setTimeout(() => {
-        setChatHistory((prev) => {
-          let updatedHistory = [...prev];
-          let lastIndex = updatedHistory.length - 1;
-          updatedHistory[lastIndex] = {
-            ...updatedHistory[lastIndex],
-            text: updatedHistory[lastIndex].text + " " + word,
-          };
-          return updatedHistory;
-        });
-      }, 75 * i);
-    });
-
-    setLoading(false);
-    setInput("");
   };
 
   return (

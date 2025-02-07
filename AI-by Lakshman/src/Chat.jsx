@@ -59,7 +59,7 @@ const Chat = () => {
   return (
     <div className="flex h-screen overflow-hidden w-screen">
       <Sidebar />
-      <div className="flex-1 flex flex-col relative ml-5">
+      <div className="flex-1 flex flex-col  relative ml-5">
         <AnimatePresence mode="wait">
           {!showResult ? (
             <motion.div
@@ -226,14 +226,14 @@ const Chat = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="bottomchat sticky bottom-10 bg-white border-t border-gray-200 p-4">
-          <div className="inputBox max-w-4xl mx-auto relative">
+        <div className="bottomchat sticky bottom-10  left-0 border-t  border-gray-200 p-4">
+          <div className="inputBox max-w-5xl mx-auto relative  w-full ">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask wastey"
-              className=" w-full p-2 pl-5 rounded-full border border-gray-200 outline-ring-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              className=" w-full p-3 pl-5 rounded-full border bg-blue-200 border-gray-200 outline-ring-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
             />
             <AnimatePresence>
               {input && (
@@ -252,7 +252,7 @@ const Chat = () => {
                   <img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nO3ULUvEQRCA8Z8oeiBoMAkWtVgsVo1XLWe/aDVajdbDDyAYrX4FMV04o+WCyeQLWETOE2EWtnj8xV003AMTlp2ZB2ZfmPID+uhiTiXGEUMcY7mWIMULelgrLejgOlu/4RzbpQSJHVzgPdv7Eu9jpoQgsY5TPGU5dzhCq4QgsRRN77PcB5xgRQNS0RYWJuTNx3UeZDWvOMNmE0GKx3gblzGiQ7SxkdXs4QofUTOKdfs3gtUGgt0/HVH1Q/7umj5nObcxsta/fGid2l/FuPZnN4zDXCzVOHGDA8yWbjzFJD4B3pVyKx3i0DkAAAAASUVORK5CYII="
                     alt="Send"
-                    className="w-6 h-6"
+                    className="w-6 h-6 hover:cursor-pointer"
                   />
                 </motion.button>
               )}

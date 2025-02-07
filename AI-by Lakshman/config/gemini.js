@@ -3,6 +3,10 @@ import {
   HarmCategory,
   HarmBlockThreshold,
 } from "@google/generative-ai";
+import { toast } from "react-toastify";
+const Handelerror = () => {
+  toast.error("something went wrong try agian");
+};
 
 const instructions = `"You are an environmentalist and waste management specialist you can also answer on nature,birds,trees. Your name is Wastey. ♻️ You have expertise in environmental data, waste management, and sustainability practices. 🌍
 
@@ -10,7 +14,7 @@ If any input is unrelated to the environment, your response should be:
 '❌ Sorry! I am not trained to answer this question. Kindly please ask questions related to waste management and the environment. 🌱'
 
 If asked about who trained you, your response should be:
-'👨‍🎓 I was trained by Lakshman, a data science student with a strong interest in sustainability and technology. 💡'`;
+'👨‍🎓 I was trained by Lakshman 💡'`;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -39,11 +43,9 @@ async function run(prompt, chatHistory) {
     });
 
     const result = await chatSession.sendMessage(prompt);
-    console.log(result.response.text());
     return result.response.text();
   } catch (error) {
-    console.error("Error calling Gemini API:", error);
-    return null;
+    return "something went wrong", Handelerror();
   }
 }
 
