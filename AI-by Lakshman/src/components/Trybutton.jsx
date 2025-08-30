@@ -10,7 +10,7 @@ const Trybutton = () => {
         >
           <button className="overflow-hidden relative w-36 h-12 bg-black text-white border-none rounded-full text-xl font-medium cursor-pointer group">
             <span className="relative z-10 transition-all duration-500 group-hover:opacity-0">
-              WasteyAI
+              EchoAi
             </span>
             <span className="absolute top-2.5 left-10 z-10 text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               Trynow

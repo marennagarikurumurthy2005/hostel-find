@@ -18,7 +18,7 @@ const Contact = () => {
     toast.success("Form submitted Successfully");
     setFormData({ name: "", email: "", message: "" });
   };
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
 
   const contentVariants = {
     expanded: {
@@ -46,8 +46,8 @@ const Contact = () => {
         <h1 className="text-3xl font-bold text-center mb-4">📩 Contact Us</h1>
         <p className="text-gray-600 text-center mb-6">
           Have questions or feedback? Feel free to reach out! Whether it's about
-          Wastey AI, waste management, or collaboration opportunities, we're
-          here to help. 🌿♻️
+          Echo AI, waste management, or collaboration opportunities, we're here
+          to help. 🌿♻️
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

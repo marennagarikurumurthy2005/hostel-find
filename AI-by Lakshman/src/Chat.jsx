@@ -1,11 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import batteries from "./assets/batteries.png";
-import household from "./assets/household.png";
-import nearest from "./assets/recycle.png";
-import recycle from "./assets/recycle2.png";
-import user from "./assets/user.png";
-import ai from "./assets/logo.png";
+
 import "./Chat.css";
 import { Context } from "./context/context";
 import Loading from "./components/loading";
@@ -56,10 +51,19 @@ const Chat = () => {
     },
   };
 
+  const handleEnter = (e) => {
+    if (e.key === "Enter" && input.length > 0 && input != 0) {
+      setInput("");
+      onSent();
+    }
+  };
+
   return (
-    <div className="flex h-screen overflow-hidden w-screen">
-      <Sidebar />
-      <div className="flex-1 flex flex-col  relative ml-5">
+    <div className="flex h-screen overflow-hidden bg-white relative">
+      <div className="absolute top-0 left-0 h-full z-30 md:relative">
+        <Sidebar />
+      </div>
+      <div className="flex-1 flex flex-col relative max-h-screen w-full">
         <AnimatePresence mode="wait">
           {!showResult ? (
             <motion.div
@@ -68,25 +72,25 @@ const Chat = () => {
               exit={{ opacity: 0 }}
               className="flex-1 flex flex-col"
             >
-              <div className="flex-1 p-8 md:p-12 w-screen align-middle">
+              <div className="flex-1 p-4 md:p-8 lg:p-12 w-full">
                 <motion.div
-                  className="headings flex flex-col  gap-1 mb-12 pl-10"
+                  className="headings flex flex-col gap-2 mb-8 md:mb-12 text-center md:text-left"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <p className="titleheading  select-none ">
+                  <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-black select-none">
                     Hi there! Welcome
                   </p>
-                  <p className=" tiltesub text-xl mt-1 text-[#333333] font-bold">
-                    How can I help you with your waste disposal or recycling
+                  <p className="text-base md:text-xl lg:text-2xl mt-1 md:mt-2 text-gray-700 font-medium">
+                    How can I help you with your farming and agricultural
                     questions?
                   </p>
                 </motion.div>
 
-                <div className="cards">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
                   <motion.div
-                    className="card"
+                    className="bg-white border-2 border-gray-200 rounded-xl p-4 md:p-6 cursor-pointer hover:border-black transition-all duration-200 hover:shadow-lg"
                     variants={cardVariants}
                     custom={0}
                     initial="hidden"
@@ -94,21 +98,29 @@ const Chat = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
-                      setInput("What can I recycle in my area?");
-                      onSent("What can I recycle in my area?");
+                      setInput(
+                        "What are the best crops to grow in my region during this season?"
+                      );
+                      onSent(
+                        "What are the best crops to grow in my region during this season?"
+                      );
                     }}
                   >
-                    <p className="cardsPara">What can I recycle in my area?</p>
-                    <img
-                      src={recycle}
-                      alt="recycleimg"
-                      width={30}
-                      height={25}
-                    />
+                    <div className="flex items-center justify-between">
+                      <p className="text-gray-800 font-medium text-sm md:text-base">
+                        What are the best crops to grow in my region during this
+                        season?
+                      </p>
+                      <div className="ml-4 flex-shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                          <span className="text-white text-lg">🌾</span>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
 
                   <motion.div
-                    className="card"
+                    className="bg-white border-2 border-gray-200 rounded-xl p-4 md:p-6 cursor-pointer hover:border-black transition-all duration-200 hover:shadow-lg"
                     variants={cardVariants}
                     custom={1}
                     initial="hidden"
@@ -117,27 +129,28 @@ const Chat = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setInput(
-                        "How do I dispose of hazardous waste like batteries or paint?"
+                        "How can I control pests and diseases in my crops organically?"
                       );
                       onSent(
-                        "How do I dispose of hazardous waste like batteries or paint?"
+                        "How can I control pests and diseases in my crops organically?"
                       );
                     }}
                   >
-                    <p className="cardsPara">
-                      How do I dispose of hazardous waste like batteries or
-                      paint?
-                    </p>
-                    <img
-                      src={batteries}
-                      alt="recycleimg"
-                      width={35}
-                      height={25}
-                    />
+                    <div className="flex items-center justify-between">
+                      <p className="text-gray-800 font-medium text-sm md:text-base">
+                        How can I control pests and diseases in my crops
+                        organically?
+                      </p>
+                      <div className="ml-4 flex-shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                          <span className="text-white text-lg">🐛</span>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
 
                   <motion.div
-                    className="card"
+                    className="bg-white border-2 border-gray-200 rounded-xl p-4 md:p-6 cursor-pointer hover:border-black transition-all duration-200 hover:shadow-lg"
                     variants={cardVariants}
                     custom={2}
                     initial="hidden"
@@ -146,26 +159,27 @@ const Chat = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setInput(
-                        "What are some tips for reducing my household waste?"
+                        "What is the best irrigation schedule for my crops?"
                       );
                       onSent(
-                        "What are some tips for reducing my household waste?"
+                        "What is the best irrigation schedule for my crops?"
                       );
                     }}
                   >
-                    <p className="cardsPara">
-                      What are some tips for reducing my household waste?
-                    </p>
-                    <img
-                      src={household}
-                      alt="recycleimg"
-                      width={35}
-                      height={25}
-                    />
+                    <div className="flex items-center justify-between">
+                      <p className="text-gray-800 font-medium text-sm md:text-base">
+                        What is the best irrigation schedule for my crops?
+                      </p>
+                      <div className="ml-4 flex-shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                          <span className="text-white text-lg">💧</span>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
 
                   <motion.div
-                    className="card"
+                    className="bg-white border-2 border-gray-200 rounded-xl p-4 md:p-6 cursor-pointer hover:border-black transition-all duration-200 hover:shadow-lg"
                     variants={cardVariants}
                     custom={3}
                     initial="hidden"
@@ -173,19 +187,20 @@ const Chat = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
-                      setInput("Where is my nearest recycling center?");
-                      onSent("Where is my nearest recycling center?");
+                      setInput("How can I improve my soil health naturally?");
+                      onSent("How can I improve my soil health naturally?");
                     }}
                   >
-                    <p className="cardsPara">
-                      Where is my nearest recycling center?
-                    </p>
-                    <img
-                      src={nearest}
-                      alt="recycleimg"
-                      width={35}
-                      height={25}
-                    />
+                    <div className="flex items-center justify-between">
+                      <p className="text-gray-800 font-medium text-sm md:text-base">
+                        How can I improve my soil health naturally?
+                      </p>
+                      <div className="ml-4 flex-shrink-0">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                          <span className="text-white text-lg">🌱</span>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
                 </div>
               </div>
@@ -195,45 +210,100 @@ const Chat = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex-1 flex flex-col p-8 md:p-12"
+              className="w-full flex-1 flex flex-col justify-center"
             >
-              <div className="chat-container flex-1 overflow-y-auto mb-8">
-                <div className=" max-w-4xl mx-auto">
-                  {chatHistory.map((message, index) => (
-                    <div
-                      key={`${message.text}-${index}`}
-                      className={`message flex items-start gap-3 mb-6 ${
-                        message.type === "user" ? "user-msg" : "bot-msg"
-                      }`}
-                    >
-                      <img
-                        src={message.type === "user" ? user : ai}
-                        alt={message.type === "user" ? "User" : "Bot"}
-                        className="w-12 h-12 rounded-full"
-                      />
-                      <div className="flex-1">
-                        <p
-                          className=" botText text-lg leading-7"
-                          dangerouslySetInnerHTML={{ __html: message.text }}
-                        />
+              <div className="flex-1 overflow-y-auto mb-2 md:mb-6 w-full">
+                <div className="chat-container w-full  px-4 md:px-8 lg:px-12">
+                  <div className="space-y-6">
+                    {chatHistory.map((message, index) => (
+                      <div
+                        key={`${message.text}-${index}`}
+                        className="message w-full"
+                        variants={messageVariants}
+                        initial="hidden"
+                        animate="visible"
+                      >
+                        <div
+                          className={`w-full flex items-start gap-3 md:gap-4 ${
+                            message.type === "user"
+                              ? "justify-end"
+                              : "min-w-screen justify-start"
+                          }`}
+                        >
+                          {message.type === "bot" && (
+                            <div className="flex-shrink-0">
+                              <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                                <span className="text-white text-sm md:text-base font-bold">
+                                  AI
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0 max-w-[75%] md:max-w-[70%]">
+                            <div
+                              className={`rounded-2xl p-3 md:p-4 ${
+                                message.type === "user"
+                                  ? "bg-gray-100 border border-gray-200"
+                                  : "bg-white"
+                              }`}
+                            >
+                              <p
+                                className="text-gray-800 text-sm md:text-base leading-relaxed"
+                                dangerouslySetInnerHTML={{
+                                  __html: message.text,
+                                }}
+                              />
+                            </div>
+                          </div>
+                          {message.type === "user" && (
+                            <div className="flex-shrink-0">
+                              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center">
+                                <span className="text-white text-sm md:text-base font-bold">
+                                  U
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                  {loading && <Loading />}
-                  <div ref={chatEndRef} />
+                    ))}
+                    {loading && (
+                      <motion.div
+                        className="message w-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                      >
+                        <div className="flex items-start gap-3 md:gap-4 justify-start">
+                          <div className="flex-shrink-0">
+                            <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
+                              <span className="text-white text-sm md:text-base font-bold">
+                                AI
+                              </span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-3 md:p-4">
+                            <Loading />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                    <div ref={chatEndRef} />
+                  </div>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="bottomchat sticky bottom-10  left-0 border-t  border-gray-200 p-4">
-          <div className="inputBox max-w-5xl mx-auto relative  w-full ">
+
+        <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 md:p-6">
+          <div className="max-w-4xl mx-auto relative">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask wastey"
-              className=" w-full p-3 pl-5 rounded-full border bg-blue-200 border-gray-200 outline-ring-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              onKeyDown={handleEnter}
+              placeholder="Ask about farming, crops, irrigation, or soil health..."
+              className="w-full p-3 md:p-4 pr-12 md:pr-14 rounded-full border-2 border-gray-300 bg-white outline-none focus:border-black transition-colors duration-200 text-gray-800 placeholder-gray-500 text-sm md:text-base"
             />
             <AnimatePresence>
               {input && (
@@ -243,17 +313,25 @@ const Chat = () => {
                   exit={{ opacity: 0, scale: 0.8 }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                  className="absolute right-2 md:right-3 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors duration-200"
                   onClick={() => {
-                    onSent();
                     setInput("");
+                    onSent();
                   }}
                 >
-                  <img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nO3ULUvEQRCA8Z8oeiBoMAkWtVgsVo1XLWe/aDVajdbDDyAYrX4FMV04o+WCyeQLWETOE2EWtnj8xV003AMTlp2ZB2ZfmPID+uhiTiXGEUMcY7mWIMULelgrLejgOlu/4RzbpQSJHVzgPdv7Eu9jpoQgsY5TPGU5dzhCq4QgsRRN77PcB5xgRQNS0RYWJuTNx3UeZDWvOMNmE0GKx3gblzGiQ7SxkdXs4QofUTOKdfs3gtUGgt0/HVH1Q/7umj5nObcxsta/fGid2l/FuPZnN4zDXCzVOHGDA8yWbjzFJD4B3pVyKx3i0DkAAAAASUVORK5CYII="
-                    alt="Send"
-                    className="w-6 h-6 hover:cursor-pointer"
-                  />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-white rotate-90"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
+                  </svg>
                 </motion.button>
               )}
             </AnimatePresence>

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Context } from "./context/context";
 import { ToastContainer, toast } from "react-toastify";
 import edit from "./assets/edit.png";
-
+import { ArrowUpRight } from "lucide-react";
 const Sidebar = ({
   type,
   onExpandChange,
@@ -14,7 +14,6 @@ const Sidebar = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { onSent, prevPrompts, setRecentPrompt, newChat } = useContext(Context);
-
   useEffect(() => {
     onExpandChange?.(isExpanded);
   }, [isExpanded, onExpandChange]);
@@ -31,7 +30,8 @@ const Sidebar = ({
 
   const sidebarVariants = {
     expanded: {
-      width: "240px",
+      width: "50%",
+      height: "100%",
       transition: {
         type: "spring",
         stiffness: 100,
@@ -39,7 +39,8 @@ const Sidebar = ({
       },
     },
     collapsed: {
-      width: "70px",
+      width: "45px",
+      height: "55px",
       transition: {
         type: "spring",
         stiffness: 100,
@@ -105,14 +106,14 @@ const Sidebar = ({
         >
           <Link to="/" className="flex items-center gap-2">
             <motion.div className="font-bold text-xl whitespace-nowrap" layout>
-              {isExpanded ? "Wastey" : "W"}
+              {isExpanded ? "Echo" : "E"}
             </motion.div>
           </Link>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-4 border-none"
+            className=" border-none"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +151,25 @@ const Sidebar = ({
                         className="block hover:bg-gray-100 p-2 rounded-lg transition-colors"
                       >
                         {item}
+                      </Link>
+                    </motion.div>
+                  ))}
+                  {["EchoAi"].map((item, index) => (
+                    <motion.div
+                      key={item}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Link
+                        to="/chat"
+                        className="flex flex-row   hover:bg-gray-100 p-2 rounded-lg transition-colors"
+                      >
+                        {item}
+                        <ArrowUpRight
+                          size={20}
+                          className="mt-1 text-gray-500"
+                        />
                       </Link>
                     </motion.div>
                   ))}
