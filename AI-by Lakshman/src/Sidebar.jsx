@@ -106,7 +106,7 @@ const Sidebar = ({
         >
           <Link to="/" className="flex items-center gap-2">
             <motion.div className="font-bold text-xl whitespace-nowrap" layout>
-              {isExpanded ? "Echo" : "E"}
+              {isExpanded ? "Farmly" : "F"}
             </motion.div>
           </Link>
           <motion.button
@@ -154,7 +154,7 @@ const Sidebar = ({
                       </Link>
                     </motion.div>
                   ))}
-                  {["EchoAi"].map((item, index) => (
+                  {["FarmlyAi"].map((item, index) => (
                     <motion.div
                       key={item}
                       variants={itemVariants}

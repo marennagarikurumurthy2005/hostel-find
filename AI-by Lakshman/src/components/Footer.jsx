@@ -8,7 +8,7 @@ import {
 const Footer = () => {
   return (
     <div className="min-w-full z-50 p-8 bg-gray-200  bottom-0 text-center">
-      <h1>&#169;2025 EchoAi All rights reserved.</h1>
+      <h1>&#169;2025 Farmly All rights reserved.</h1>
       <div>
         <h3 className="font-semibold mt-5 ">Follow Us</h3>
         <div className="flex  flex-row items-center justify-center gap-2">

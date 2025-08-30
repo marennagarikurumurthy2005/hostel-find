@@ -63,7 +63,7 @@ const About = () => {
           >
             <motion.div className="heading" variants={textVariants}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium font-serif">
-                About EchoAI
+                About FarmlyAI
               </h1>
             </motion.div>
 
@@ -73,22 +73,22 @@ const About = () => {
             >
               <div className="flex flex-col gap-3 font-serif text-sm md:text-base lg:text-lg text-start">
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  Echo AI is an intelligent agricultural assistant designed
+                  Farmly AI is an intelligent agricultural assistant designed
                   to revolutionize farming practices and crop management. It
                   provides expert guidance on crop selection, soil health,
                   irrigation techniques, pest control, and sustainable farming
                   methods, offering clear and actionable advice to agricultural
                   queries. By enabling interactive conversations in multiple
-                  languages, Echo AI helps cultivators make informed
+                  languages, Farmly AI helps cultivators make informed
                   decisions about maximizing crop yields and adopting modern
                   farming techniques.
                 </motion.p>
 
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  Powered by the Gemini API and developed by Lakshman, Echo
+                  Powered by the Gemini API and developed by Lakshman, Farmly
                   AI ensures accurate and region-specific responses tailored to
                   diverse agricultural needs. This project aims to support
-                  small-scale Echo, agricultural communities, and farming
+                  small-scale Farmly, agricultural communities, and farming
                   organizations in developing effective cultivation strategies
                   and improving agricultural productivity. Continuous learning
                   and farmer feedback help enhance its knowledge base and

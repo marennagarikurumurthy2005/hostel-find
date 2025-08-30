@@ -69,7 +69,7 @@ const Home = () => {
           >
             <motion.div className="heading" variants={textVariants}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium font-sans">
-                Introducing EchoAi
+                Introducing FarmlyAi
               </h1>
             </motion.div>
 
@@ -83,7 +83,7 @@ const Home = () => {
             >
               <div className="flex flex-col gap-3 font-serif text-sm md:text-base lg:text-lg text-start">
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  EchoAi is an intelligent AI chatbot designed to assist farmers
+                  FarmlyAi is an intelligent AI chatbot designed to assist farmers
                   with agricultural guidance and farming practices. This chatbot
                   is specifically created to interact conversationally,
                   providing expert advice on crop management, pest control,
@@ -152,7 +152,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         In Telangana during monsoon (June-September), the best
                         crops to grow are Rice (the primary kharif crop),
@@ -173,7 +173,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         ❌ Sorry! I am specialized in agricultural guidance and
                         farming practices. Kindly please ask questions related
@@ -194,7 +194,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         వేసవి కాలంలో పండించడానికి అనువైన కొన్ని లాభదాయకమైన
                         కూరగాయలు ఇక్కడ ఉన్నాయి: టొమాటోలు: వేడి వాతావరణంలో బాగా
@@ -218,7 +218,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         निश्चित रूप से! घर पर बने कीटनाशक बनाने के कई तरीके हैं,
                         जो आपके बगीचे के लिए सुरक्षित और प्रभावी हो सकते हैं।
@@ -265,7 +265,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         For tomato leaf curl disease (caused by whiteflies), you
                         can use these organic solutions: Neem oil spray (3-5ml
@@ -286,7 +286,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         To control aphids on cotton safely: Use biological
                         control with ladybugs and parasitic wasps, Spray
@@ -313,7 +313,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         Drip irrigation is the most water-efficient method for
                         vegetables, saving 30-50% water compared to flood
@@ -335,7 +335,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         Wheat irrigation schedule varies by growth stage: Crown
                         Root Initiation (20-25 days): First critical irrigation,
@@ -363,7 +363,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         Natural ways to improve soil fertility: Add organic
                         compost and farmyard manure, Practice crop rotation with
@@ -383,7 +383,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="p-8 bg-green-50 rounded-xl mt-2">
-                      <p className="text-gray-500 font-medium">EchoAi</p>
+                      <p className="text-gray-500 font-medium">FarmlyAi</p>
                       <p className="mt-2 ">
                         Common nutrient deficiency signs: Nitrogen (N): Yellow
                         older leaves, stunted growth, Phosphorus (P):
@@ -410,7 +410,7 @@ const Home = () => {
                 >
                   <ul className="list-disc flex flex-col gap-5 px-8 py-2">
                     <li>
-                      EchoAi is sensitive to how agricultural questions are
+                      FarmlyAi is sensitive to how agricultural questions are
                       phrased. For example, a direct query like "How do I
                       control pests on rice?" may work well, but a differently
                       worded question such as "What to do about insects eating
@@ -426,19 +426,19 @@ const Home = () => {
                     <li>
                       Ideally, the system would ask clarifying questions when
                       farmers provide ambiguous queries about their crops or
-                      farming conditions. Instead, EchoAi often provides general
+                      farming conditions. Instead, FarmlyAi often provides general
                       advice, which may not always address the specific regional
                       or seasonal farming needs.
                     </li>
                     <li>
                       Although designed to filter out non-agricultural topics,
-                      EchoAi may occasionally misclassify queries that include
+                      FarmlyAi may occasionally misclassify queries that include
                       farming keywords but focus on non-farming domains (e.g.,
                       "crop rotation in data processing"). This can result in
                       false positives or unnecessary rejections.
                     </li>
                     <li>
-                      EchoAi does not retain permanent chat history about
+                      FarmlyAi does not retain permanent chat history about
                       previous farming consultations. Conversations exist only
                       during the active session, which limits continuity and
                       personalized farming advice based on past interactions.
