@@ -47,7 +47,7 @@ FarmlyAI processes agricultural data on crop patterns, soil conditions, weather 
 ## 🚀 Deployment:
 
 You can check out the live demo of FarmlyAI once deployed here:  
-[Live Demo](https://FarmlyAI-farmers.netlify.app/)
+[Live Demo](https://farmlyai.netlify.app/)
 
 ---
 
