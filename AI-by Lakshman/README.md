@@ -56,12 +56,14 @@ You can check out the live demo of FarmlyAI once deployed here:
 To run FarmlyAI locally, follow these steps:
 
 ### 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Laxman2546/FarmlyAI-farmers.git
 cd FarmlyAI-farmers
 ```
 
 ### 2. Install dependencies:
+
 ```bash
 npm i
 npm install tailwindcss @tailwindcss/vite
@@ -70,6 +72,7 @@ npm install react-toastify
 ```
 
 ### 3. Run the application:
+
 ```bash
 npm run dev
 ```
@@ -78,16 +81,23 @@ npm run dev
 
 ## 🌱 Sample Questions You Can Ask:
 
+### you can chat in ypu own language
+
+## here are some sample languages
+
 ### English:
+
 - "What crops should I grow this season in my region?"
 - "How can I improve my soil health naturally?"
 - "What's the best irrigation schedule for tomatoes?"
 
 ### Telugu (తెలుగు):
+
 - "ఈ సీజన్‌లో మా ప్రాంతంలో ఏ పంటలు బాగా పెరుగుతాయి?"
 - "మట్టి ఆరోగ్యాన్ని ఎలా మెరుగుపరచాలి?"
 
 ### Hindi (हिंदी):
+
 - "इस मौसम में कौन सी फसल लगाना अच्छा होगा?"
 - "मिట्टी की सेहत कैसे सुधारें?"
 
