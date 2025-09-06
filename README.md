@@ -77,7 +77,9 @@ npm run dev
 ---
 
 ## 🌱 Sample Questions You Can Ask:
+### You can chat in your own language
 
+## Here are some sample languages
 ### English:
 - "What crops should I grow this season in my region?"
 - "How can I improve my soil health naturally?"
