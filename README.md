@@ -1,7 +1,7 @@
 # FarmlyAI - Farmers Assistant 🌾🤖
 
 You can check out the live demo of FarmlyAI once deployed here:  
-[Live Demo](https://FarmlyAI-farmers.netlify.app/)
+[Live Demo](https://farmlyai.netlify.app/)
 
 **FarmlyAI** is an AI-powered agricultural assistance system designed to help farmers track and optimize farming practices for sustainable and productive agriculture. It utilizes advanced AI to provide crop recommendations, analyze soil health, optimize irrigation schedules, and evaluate farming efficiency across different regions and seasons.
 
@@ -47,7 +47,7 @@ FarmlyAI processes agricultural data on crop patterns, soil conditions, weather 
 ## 🚀 Deployment:
 
 You can check out the live demo of FarmlyAI once deployed here:  
-[Live Demo](https://FarmlyAI-farmers.netlify.app/)
+[Live Demo](https://farmlyai.netlify.app/)
 
 ---
 
