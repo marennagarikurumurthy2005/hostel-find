@@ -81,9 +81,9 @@ npm run dev
 
 ## 🌱 Sample Questions You Can Ask:
 
-### you can chat in ypu own language
+### You can chat in your own language
 
-## here are some sample languages
+## Here are some sample languages
 
 ### English:
 
