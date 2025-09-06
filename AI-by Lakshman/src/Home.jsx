@@ -62,7 +62,7 @@ const Home = () => {
           ></motion.div>
 
           <motion.div
-            className="max-w-4xl mx-auto mt-8 flex flex-col gap-6 items-center text-center md:gap-8"
+            className="max-w-4xl mx-auto mt-12 md:mt-36 flex flex-col gap-6 items-center text-center  md:gap-8"
             initial="initial"
             animate="animate"
             variants={textVariants}
@@ -83,26 +83,14 @@ const Home = () => {
             >
               <div className="flex flex-col gap-3 font-serif text-sm md:text-base lg:text-lg text-start">
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  FarmlyAi is an intelligent AI chatbot designed to assist farmers
-                  with agricultural guidance and farming practices. This chatbot
-                  is specifically created to interact conversationally,
+                  FarmlyAi is an intelligent AI chatbot designed to assist
+                  farmers with agricultural guidance and farming practices. This
+                  chatbot is specifically created to interact conversationally,
                   providing expert advice on crop management, pest control,
                   fertilizers, irrigation, and various farming techniques. The
                   conversational format allows farmers to ask follow-up
                   questions, clarify their doubts, and receive personalized
                   agricultural recommendations.
-                </motion.p>
-
-                <motion.p className="leading-relaxed" variants={textVariants}>
-                  This chatbot is built using the Gemini API, enabling it to
-                  understand and respond to a wide range of queries related to
-                  modern farming practices, traditional agriculture methods, and
-                  sustainable farming techniques. We believe this tool can be a
-                  valuable resource for farmers, agricultural students, and
-                  farming communities looking to improve their crop yields and
-                  farming strategies. We are eager to gather feedback from the
-                  farming community to enhance its performance and address
-                  specific agricultural needs.
                 </motion.p>
               </div>
             </motion.div>
@@ -132,7 +120,7 @@ const Home = () => {
                         className={`font-sans ${
                           sample === items ? "bg-gray-300" : "bg-gray-100"
                         }
-                          hover:bg-gray-300 p-2 pl-5 pr-5 rounded-3xl text-sm cursor-pointer`}
+                          hover:bg-gray-300 p-2 pl-5 pr-5 rounded-3xl text-sm cursor-pointer text-nowrap`}
                       >
                         {items}
                       </button>
@@ -426,9 +414,9 @@ const Home = () => {
                     <li>
                       Ideally, the system would ask clarifying questions when
                       farmers provide ambiguous queries about their crops or
-                      farming conditions. Instead, FarmlyAi often provides general
-                      advice, which may not always address the specific regional
-                      or seasonal farming needs.
+                      farming conditions. Instead, FarmlyAi often provides
+                      general advice, which may not always address the specific
+                      regional or seasonal farming needs.
                     </li>
                     <li>
                       Although designed to filter out non-agricultural topics,

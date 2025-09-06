@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./home";
 import About from "./About";
 import Contact from "./Contact.jsx";
-import Sidebar from "./Sidebar.jsx";
 
 import Chat from "./Chat.jsx";
 

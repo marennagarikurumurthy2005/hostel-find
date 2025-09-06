@@ -23,15 +23,15 @@ const ContextProvider = ({ children }) => {
 
     formattedText = formattedText.replace(
       /^### (.*$)/gm,
-      '<h3 style="font-size: 1.2em; font-weight: bold; margin: 16px 0 8px 0; color: #1f2937;">$1</h3>'
+      '<h3 style="font-size: 1.2em; font-weight: bold; margin: 12px 0 8px 0; color: #1f2937;">$1</h3>'
     );
     formattedText = formattedText.replace(
       /^## (.*$)/gm,
-      '<h2 style="font-size: 1.4em; font-weight: bold; margin: 20px 0 10px 0; color: #1f2937;">$1</h2>'
+      '<h2 style="font-size: 1.4em; font-weight: bold; margin: 10px 0 10px 0; color: #1f2937;">$1</h2>'
     );
     formattedText = formattedText.replace(
       /^# (.*$)/gm,
-      '<h1 style="font-size: 1.6em; font-weight: bold; margin: 24px 0 12px 0; color: #1f2937;">$1</h1>'
+      '<h1 style="font-size: 1.6em; font-weight: bold; margin: 12px 0 12px 0; color: #1f2937;">$1</h1>'
     );
 
     formattedText = formattedText.replace(

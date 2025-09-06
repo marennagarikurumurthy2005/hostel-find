@@ -59,7 +59,11 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white relative">
+    <div
+      className={`${
+        !showResult ? "mt-5 md:mt-24" : "mt-5"
+      } flex h-screen overflow-hidden bg-white relative`}
+    >
       <div className="absolute top-0 left-0 h-full z-30 md:relative">
         <Sidebar />
       </div>
