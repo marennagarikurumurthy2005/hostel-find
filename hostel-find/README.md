@@ -3,7 +3,7 @@
 # HostelFindAI - Smart Hostel Assistant 🏠🤖
 
 You can check out the live demo of HostelFindAI once deployed here:
-[Live Demo](https://hostelfindai.netlify.app/)
+[Live Demo](https://hostelfindai.app/)
 
 **HostelFindAI** is an AI-powered hostel assistance system designed to help students and travelers easily find, compare, and book hostels. It leverages AI to provide personalized recommendations, analyze amenities, track availability, and optimize booking experiences across different cities and regions.
 
@@ -51,7 +51,7 @@ Users can interact with the AI assistant to get hostel suggestions, ask about fa
 ## 🚀 Deployment:
 
 You can check out the live demo of HostelFindAI once deployed here:
-[Live Demo](https://hostelfindai.netlify.app/)
+[Live Demo](https://hostelfindai.app/)
 
 ---
 
@@ -62,8 +62,8 @@ To run HostelFindAI locally, follow these steps:
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YourUsername/HostelFindAI.git
-cd HostelFindAI
+git clone https://github.com/marennagarikurumurthy2005/HostelFindAI.git
+cd hostel-find
 ```
 
 ### 2. Install dependencies:
