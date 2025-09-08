@@ -94,7 +94,7 @@ const Sidebar = ({
 
   return (
     <motion.div
-      className="fixed top-0 left-0 h-140 bg-white z-10 overflow-hidden"
+      className="fixed top-0 left-0 h-140 bg-white z-10 overflow-show"
       initial="collapsed"
       animate={isExpanded ? "expanded" : "collapsed"}
       variants={sidebarVariants}
@@ -105,8 +105,8 @@ const Sidebar = ({
           variants={contentVariants}
         >
           <Link to="/" className="flex items-center gap-2">
-            <motion.div className="font-bold text-xl whitespace-nowrap" layout>
-              {isExpanded ? "Farmly" : "F"}
+            <motion.div className="font-bold text-xl whitespace-nowrap bg-transparent" layout>
+              {isExpanded ? "HostelFind AI" : "HF📍"}
             </motion.div>
           </Link>
           <motion.button

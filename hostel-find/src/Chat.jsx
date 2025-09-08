@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import "./Chat.css";
 import { Context } from "./context/context";
-import Loading from "./components/loading";
+import Loading from "./components/Loading";
 import Sidebar from "./Sidebar";
+import HostelCard from "./HostelCard";
 
 const Chat = () => {
   const {
@@ -87,8 +88,7 @@ const Chat = () => {
                     Hi there! Welcome
                   </p>
                   <p className="text-base md:text-xl lg:text-2xl mt-1 md:mt-2 text-gray-700 font-medium">
-                    How can I help you with your farming and agricultural
-                    questions?
+                    How can I find the best hostel near my college or workplace?
                   </p>
                 </motion.div>
 
@@ -103,21 +103,20 @@ const Chat = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setInput(
-                        "What are the best crops to grow in my region during this season?"
+                        "How can I find the best hostel near my college or workplace?"
                       );
                       onSent(
-                        "What are the best crops to grow in my region during this season?"
+                        "How can I find the best hostel near my college or workplace?"
                       );
                     }}
                   >
                     <div className="flex items-center justify-between">
                       <p className="text-gray-800 font-medium text-sm md:text-base">
-                        What are the best crops to grow in my region during this
-                        season?
+                        What are the best hostels available in my area during this season?
                       </p>
                       <div className="ml-4 flex-shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
-                          <span className="text-white text-lg">🌾</span>
+                          <span className="text-white text-lg">🏠</span>
                         </div>
                       </div>
                     </div>
@@ -133,21 +132,20 @@ const Chat = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setInput(
-                        "How can I control pests and diseases in my crops organically?"
+                        " What are the best hostels available in my area during this season?"
                       );
                       onSent(
-                        "How can I control pests and diseases in my crops organically?"
+                        " What are the best hostels available in my area during this season?"
                       );
                     }}
                   >
                     <div className="flex items-center justify-between">
                       <p className="text-gray-800 font-medium text-sm md:text-base">
-                        How can I control pests and diseases in my crops
-                        organically?
+                        How can I find safe and hygienic hostels with good facilities?
                       </p>
                       <div className="ml-4 flex-shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
-                          <span className="text-white text-lg">🐛</span>
+                          <span className="text-white text-lg">🧼</span>
                         </div>
                       </div>
                     </div>
@@ -163,20 +161,20 @@ const Chat = () => {
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       setInput(
-                        "What is the best irrigation schedule for my crops?"
+                        "How can I find safe and hygienic hostels with good facilities?"
                       );
                       onSent(
-                        "What is the best irrigation schedule for my crops?"
+                        "How can I find safe and hygienic hostels with good facilities?"
                       );
                     }}
                   >
                     <div className="flex items-center justify-between">
                       <p className="text-gray-800 font-medium text-sm md:text-base">
-                        What is the best irrigation schedule for my crops?
+                        Can I book a hostel directly through HostelFind AI?
                       </p>
                       <div className="ml-4 flex-shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
-                          <span className="text-white text-lg">💧</span>
+                          <span className="text-white text-lg">📱</span>
                         </div>
                       </div>
                     </div>
@@ -191,17 +189,17 @@ const Chat = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
-                      setInput("How can I improve my soil health naturally?");
-                      onSent("How can I improve my soil health naturally?");
+                      setInput("Can I book a hostel directly through HostelFind AI?");
+                      onSent("Can I book a hostel directly through HostelFind AI?");
                     }}
                   >
                     <div className="flex items-center justify-between">
                       <p className="text-gray-800 font-medium text-sm md:text-base">
-                        How can I improve my soil health naturally?
+                        Does HostelFind AI support multiple languages?
                       </p>
                       <div className="ml-4 flex-shrink-0">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center">
-                          <span className="text-white text-lg">🌱</span>
+                          <span className="text-white text-lg">అ</span>
                         </div>
                       </div>
                     </div>
@@ -251,12 +249,34 @@ const Chat = () => {
                                   : "bg-white"
                               }`}
                             >
-                              <p
-                                className="text-gray-800 text-sm md:text-base leading-relaxed"
-                                dangerouslySetInnerHTML={{
-                                  __html: message.text,
-                                }}
-                              />
+                              {/* ✅ JSON-aware rendering */}
+                              {(() => {
+                                try {
+                                  const parsed = JSON.parse(message.text);
+                                  if (parsed.name) {
+                                    return <HostelCard hostel={parsed} />;
+                                  }
+                                  if (parsed.error) {
+                                    return (
+                                      <p className="text-red-500">{parsed.error}</p>
+                                    );
+                                  }
+                                  if (parsed.info) {
+                                    return (
+                                      <p className="text-gray-600">{parsed.info}</p>
+                                    );
+                                  }
+                                } catch {
+                                  return (
+                                    <p
+                                      className="text-gray-800 text-sm md:text-base leading-relaxed"
+                                      dangerouslySetInnerHTML={{
+                                        __html: message.text,
+                                      }}
+                                    />
+                                  );
+                                }
+                              })()}
                             </div>
                           </div>
                           {message.type === "user" && (
@@ -306,7 +326,7 @@ const Chat = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleEnter}
-              placeholder="Ask about farming, crops, irrigation, or soil health..."
+              placeholder="Ask about Hostels, Prices, Benefits..."
               className="w-full p-3 md:p-4 pr-12 md:pr-14 rounded-full border-2 border-gray-300 bg-white outline-none focus:border-black transition-colors duration-200 text-gray-800 placeholder-gray-500 text-sm md:text-base"
             />
             <AnimatePresence>

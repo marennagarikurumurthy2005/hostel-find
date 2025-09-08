@@ -18,6 +18,7 @@ const ContextProvider = ({ children }) => {
     setChatHistory([]);
   };
 
+  // 🔹 Format markdown/text into styled HTML
   const formatResponse = (text) => {
     let formattedText = text;
 
@@ -34,11 +35,7 @@ const ContextProvider = ({ children }) => {
       '<h1 style="font-size: 1.6em; font-weight: bold; margin: 12px 0 12px 0; color: #1f2937;">$1</h1>'
     );
 
-    formattedText = formattedText.replace(
-      /\*\*(.*?)\*\*/g,
-      "<strong>$1</strong>"
-    );
-
+    formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
     formattedText = formattedText.replace(
       /(?<!\*)\*([^*]+)\*(?!\*)/g,
       "<em>$1</em>"
@@ -64,22 +61,15 @@ const ContextProvider = ({ children }) => {
       '<code style="background-color: #f3f4f6; padding: 2px 4px; border-radius: 3px; font-family: monospace;">$1</code>'
     );
 
-    formattedText = formattedText.replace(
-      /\n\n/g,
-      '</p><p style="margin-bottom: 12px;">'
-    );
-
+    formattedText = formattedText.replace(/\n\n/g, '</p><p style="margin-bottom: 12px;">');
     formattedText = formattedText.replace(/\n/g, "<br>");
 
     if (!formattedText.startsWith("<p>") && !formattedText.startsWith("<h")) {
-      formattedText =
-        '<p style="margin-bottom: 12px;">' + formattedText + "</p>";
+      formattedText = '<p style="margin-bottom: 12px;">' + formattedText + "</p>";
     }
 
     formattedText = formattedText.replace(/<p[^>]*><\/p>/g, "");
-
     formattedText = formattedText.replace(/(<br>){3,}/g, "<br><br>");
-
     formattedText = formattedText.replace(/\s+/g, " ");
 
     return formattedText.trim();
@@ -98,40 +88,51 @@ const ContextProvider = ({ children }) => {
       setRecentPrompt(input);
     }
 
+    // ✅ Push user message
     setChatHistory((prev) => [...prev, { type: "user", text: userMessage }]);
 
     try {
-      let recentdataResponse = await run(userMessage, chatHistory);
+      let rawResponse = await run(userMessage, chatHistory);
 
-      let formattedResponse = formatResponse(recentdataResponse);
+      // ✅ Try parsing JSON
+      try {
+        const parsed = JSON.parse(rawResponse);
 
-      let responseWords = formattedResponse.split(" ");
+        // Push structured JSON as-is (HostelCard will render it)
+        setChatHistory((prev) => [...prev, { type: "bot", text: JSON.stringify(parsed) }]);
+      } catch {
+        // Not JSON → treat as markdown/text
+        let formattedResponse = formatResponse(rawResponse);
+        let responseWords = formattedResponse.split(" ");
 
-      setChatHistory((prev) => [...prev, { type: "bot", text: "" }]);
+        // Push empty bot message
+        setChatHistory((prev) => [...prev, { type: "bot", text: "" }]);
 
-      responseWords.forEach((word, i) => {
-        setTimeout(() => {
-          setChatHistory((prev) => {
-            let updatedHistory = [...prev];
-            let lastIndex = updatedHistory.length - 1;
-
-            let separator = i === 0 ? "" : " ";
-
-            updatedHistory[lastIndex] = {
-              ...updatedHistory[lastIndex],
-              text: updatedHistory[lastIndex].text + separator + word,
-            };
-            return updatedHistory;
-          });
-        }, 75 * i);
-      });
+        // Streaming typing effect
+        responseWords.forEach((word, i) => {
+          setTimeout(() => {
+            setChatHistory((prev) => {
+              let updatedHistory = [...prev];
+              let lastIndex = updatedHistory.length - 1;
+              let separator = i === 0 ? "" : " ";
+              updatedHistory[lastIndex] = {
+                ...updatedHistory[lastIndex],
+                text: updatedHistory[lastIndex].text + separator + word,
+              };
+              return updatedHistory;
+            });
+          }, 75 * i);
+        });
+      }
     } catch (error) {
       console.error("Error in onSent:", error);
       setChatHistory((prev) => [
         ...prev,
         {
           type: "bot",
-          text: "<p>⚠️ <strong>Oops! Something went wrong.</strong><br>Please try again or check your internet connection.</p>",
+          text: JSON.stringify({
+            error: "⚠️ Oops! Something went wrong. Please try again.",
+          }),
         },
       ]);
     } finally {

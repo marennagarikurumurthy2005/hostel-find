@@ -63,7 +63,7 @@ const About = () => {
           >
             <motion.div className="heading" variants={textVariants}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium font-serif">
-                About FarmlyAI
+                About Hostel Find AI
               </h1>
             </motion.div>
 
@@ -73,26 +73,11 @@ const About = () => {
             >
               <div className="flex flex-col gap-3 font-serif text-sm md:text-base lg:text-lg text-start">
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  Farmly AI is an intelligent agricultural assistant designed
-                  to revolutionize farming practices and crop management. It
-                  provides expert guidance on crop selection, soil health,
-                  irrigation techniques, pest control, and sustainable farming
-                  methods, offering clear and actionable advice to agricultural
-                  queries. By enabling interactive conversations in multiple
-                  languages, Farmly AI helps cultivators make informed
-                  decisions about maximizing crop yields and adopting modern
-                  farming techniques.
+                  HostelFind AI is an intelligent accommodation assistant designed to simplify hostel discovery and booking. It provides expert guidance on location, budget-friendly options, amenities, safety, and comfort, offering clear and actionable advice to accommodation queries. By enabling interactive conversations in multiple languages, HostelFind AI helps students and travelers make informed decisions about finding the best hostels and enjoying convenient, secure stays.
                 </motion.p>
 
                 <motion.p className="leading-relaxed" variants={textVariants}>
-                  Powered by the Gemini API and developed by Lakshman, Farmly
-                  AI ensures accurate and region-specific responses tailored to
-                  diverse agricultural needs. This project aims to support
-                  small-scale Farmly, agricultural communities, and farming
-                  organizations in developing effective cultivation strategies
-                  and improving agricultural productivity. Continuous learning
-                  and farmer feedback help enhance its knowledge base and
-                  maximize its impact on sustainable agriculture.
+                Powered by the Gemini API and developed by Kurumurthy M, HostelFind AI delivers accurate and personalized responses tailored to diverse accommodation needs. This project aims to support students, travelers, and hostel communities in discovering the best living options and enhancing their overall stay experience. Continuous learning and user feedback help improve its knowledge base and maximize its impact on simplifying hostel search and ensuring comfortable, affordable, and safe accommodations.
                 </motion.p>
               </div>
             </motion.div>
